@@ -31,9 +31,24 @@ Things you may want to cover:
       mysql> create user "USERNAME"@"localhost" identified by "PASSWORD";<br>
       mysql> grant all privileges on *.* to "USERNAME"@"localhost";<br>
       mysql> flush privileges;<br>
-
+   * Debian MySQL login:
+      * Username and password should be set during installation
+      * Create user:
+      Note: replace USERNAME and PASSWORD with system values<br><br>
+      mysql> create user "USERNAME"@"localhost" identified by "PASSWORD";<br>
+      mysql> grant all privileges on *.* to "USERNAME"@"localhost";<br>
+      mysql> flush privileges;<br>
+      
 * Database initialization
-
+   * OSB:
+      * Database is initialized after OSB setup is complete.<br>
+      Additional database and tables are created during initialization.<br>
+      <b>Note:</b> Database is required before service can successfully run
+   * Debian:
+      * Database is configured in config/databases.yml.<br><b>Note:</b>Ensure correct username, password, etc.
+      * Create database using: rake db:create and then db:migrate
+      
+      
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
