@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple Ruby Onion Service
+ 
+[Service]
+Type=simple
+ExecStart=/usr/bin/ruby /etc/init.d/ruby_onion.rb &
+ExecStop=/bin/bash pkill -f 'ruby_onion'
+Restart=on-failure
+
+ 
+[Install]
+WantedBy=multi-user.target

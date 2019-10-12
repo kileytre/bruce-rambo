@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------------
+# A generic run of the mill readme with some information, mostly good information.
+#
+# Setup notes are basically included below. These are specific to the 
+#   Security Onion Box setup.
+#
+# If you dont live life in linux as root, you dont live on the edge. Be edgy.
+#   Be root. (Or sudo a bunch I suppose)
+#
+# Database and all ruby dependencies need to be met before running on the 
+#   server. This includes 'mysql2', 'rest-client', and 'json' gems be installed.
+#   additionally mysql may require additional libraries, but with the security
+#   onion box installation most of this should already be in place. 
+# 
+# Versions:
+# ---------------------------------------------------------------------------------
+#   Ruby  - 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
+#   Gem   - 2.5.2.1
+#   Rails - 2.4.6
+#
+# Packages: (apt-get)
+# ---------------------------------------------------------------------------------
+#   curl
+#   libmysql-dev
+#   default-libmysql-dev
+#   default-libmariadb-dev
+#   ruby-mysql
+#   mysql-client 
+#   libmysqlclient-dev
+#
+# Files:
+# ---------------------------------------------------------------------------------
+#   ruby_onion.rb 	- Ruby workhorse script to access the securityonion_db
+#                         and post the events to a rails server.
+#     + Copy to /etc/init.d/
+#     
+#   ruby_onion.service 	- Systemd service file to add to linux initialization
+#                         Note: limited service hooks implemented
+#     + Copy to /etc/systemd/system
+#     + Issue the following commands:
+#       1.) systemctl enable ruby_onion.service
+#       2.) systemctl daemon-reload
+#       3.) systemctl start ruby_onion.service
+#       4.) systemctl status ruby_onion.service
+#
+#   mysql_securityonion_db_command  - This file has the table create for the full event
+#                                     from the securityonion_db. It was originally going
+#                                     to be implemented but overall it would require a bunch
+#                                     more typing. But its available.
+
+#   mysql_table_layout	- This shows the layout of the event table. 
+#
+# Misc:  
+# ---------------------------------------------------------------------------------
+#
+# Initial mysql login:
+#   mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db
+# 
+# Create user:
+#   Note: replace <USERNAME> and <PASSWORD> with system values 
+#
+#   mysql> create user '<USERNAME>'@'localhost' identified by '<PASSWORD>';
+#   mysql> grant all privileges on *.* to '<USERNAME>'@'localhost';
+#   mysql> flush privileges;
+#
+# Update the IP Address and Port to reflect the system, lines 47 & 48.
+# 
+# !Important! Dont forget to punch a hole in the firewall. YMMV but should work.
+#   iptables -I DOCKER-USER ! -i docker0 -o docker0 -s 192.168.146.0/24 -p tcp --dport <PORT#> -j ACCEPT
+#
+# 

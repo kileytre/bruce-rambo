@@ -1,0 +1,38 @@
++-------------------+----------------------+------+-----+---------+-------+
+| Field             | Type                 | Null | Key | Default | Extra |
++-------------------+----------------------+------+-----+---------+-------+
+| sid               | int(10) unsigned     | NO   | MUL | NULL    |       |
+| cid               | int(10) unsigned     | NO   |     | NULL    |       |
+| signature         | varchar(255)         | NO   | MUL | NULL    |       |
+| signature_gen     | int(10) unsigned     | NO   |     | NULL    |       |
+| signature_id      | int(10) unsigned     | NO   |     | NULL    |       |
+| signature_rev     | int(10) unsigned     | NO   |     | NULL    |       |
+| timestamp         | datetime             | NO   | MUL | NULL    |       |
+| unified_event_id  | int(10) unsigned     | YES  |     | NULL    |       |
+| unified_event_ref | int(10) unsigned     | YES  |     | NULL    |       |
+| unified_ref_time  | datetime             | YES  |     | NULL    |       |
+| priority          | int(10) unsigned     | YES  |     | NULL    |       |
+| class             | varchar(20)          | YES  |     | NULL    |       |
+| status            | smallint(5) unsigned | YES  | MUL | 0       |       |
+| src_ip            | int(10) unsigned     | YES  | MUL | NULL    |       |
+| dst_ip            | int(10) unsigned     | YES  | MUL | NULL    |       |
+| src_port          | int(10) unsigned     | YES  | MUL | NULL    |       |
+| dst_port          | int(10) unsigned     | YES  | MUL | NULL    |       |
+| icmp_type         | tinyint(3) unsigned  | YES  | MUL | NULL    |       |
+| icmp_code         | tinyint(3) unsigned  | YES  | MUL | NULL    |       |
+| ip_proto          | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_ver            | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_hlen           | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_tos            | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_len            | smallint(5) unsigned | YES  |     | NULL    |       |
+| ip_id             | smallint(5) unsigned | YES  |     | NULL    |       |
+| ip_flags          | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_off            | smallint(5) unsigned | YES  |     | NULL    |       |
+| ip_ttl            | tinyint(3) unsigned  | YES  |     | NULL    |       |
+| ip_csum           | smallint(5) unsigned | YES  |     | NULL    |       |
+| last_modified     | datetime             | YES  | MUL | NULL    |       |
+| last_uid          | int(10) unsigned     | YES  |     | NULL    |       |
+| abuse_queue       | enum('Y','N')        | YES  |     | NULL    |       |
+| abuse_sent        | enum('Y','N')        | YES  |     | NULL    |       |
++-------------------+----------------------+------+-----+---------+-------+
+
