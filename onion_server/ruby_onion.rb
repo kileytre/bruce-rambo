@@ -47,6 +47,7 @@ begin
   ip_addr = String("http://192.168.146.132")
   port = 3000
   backoff = 60 # time in sec.
+  sleep(backoff)
   puts ("%s Starting ..." % name)
   # Connect to mySQL and setup database for service DB as necessary
   service_db_connection = Mysql2::Client.new(:host => host, :username => user, :password => pass);
