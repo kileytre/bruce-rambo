@@ -11,6 +11,8 @@
    * Beyond initial setup, research, and investigation of the OSB (Neat security applicance/tool btw) the development effort to get the functionality operational took approximately 5.5-6hrs. This included integration and testing throughout the effort. It would have been sizeably easier to accomplish this in python, as reacquainting myself with ruby and rails had a bit of a learning curve associated. 
    * <b>Note:</b> Some of the commands used are not ideal outside of a test/development environment, caution should be used if punching holes in any production firewall.
    
+   * <b>Update (10/14):</b> Just realized this was omitted. The OSB service is maintaining the event last sent in a simple database which is created as necessary and contains only the cid of the event value. This is used to compare against the database to select only the most recent events which haven't been sent. This database can be avoided by implementing a query between the two servers to ensure the event replication but was not implemented for this scope.
+   
 
 * Version(s)
    - Ruby  - 2.3.1p112 (2016-04-26) [x86_64-linux-gnu]
