@@ -2,7 +2,7 @@
 
 <h3>An attempt at a valuable readme with some information and words, mostly good information.<br><br>... mostly.</h3><br><br>
 
-* <b>Note:</b> I'm not certain why I chose Bruce-Rambo. I had nothing clever in the mental queue and Batman-Rambo just seemed too contrived. Haha.
+* <b>Note:</b> I'm not certain why I chose Bruce-Rambo. I had nothing clever in the mental queue and Batman-Rambo just seemed too contrived, haha.
 
 * Overview:
    * This project is intended to satisfy a challenge to develop a linux service and associated script which runs on an Onion Security Box. The purpse of the script and service is to determine new events posted into the sguil database and transmit them to a remote(ish) server via posts through the restful API. The receiving end is a rails server running a mysql database on a Debian OS. Mysql (mariadb) was maintained as the database on the destination server due to personal familiarity. The Debian distro was chosen because I already had the ISO available which removed the additional time required to download. Otherwise it should be distro agnostic, so long as the intended OS runs systemd. 
@@ -79,7 +79,7 @@
       * systemctl enable ruby_onion.service
       * systemctl start ruby_onion.service
       * <b> Note:</b> The script was written to provide a aimple and bare-bones service, as such stop/start/restart/status/etc. are not configured in the same fashion as a true service. It is leveraging the systemd to start the script and is simply utilizing a 'pkill' to stop the process when a 'stop' is issued to the service. This will need to be addressed in a production/delivery package but satisfies the goal of getting the service up and running.
-   * DONT FORGET: 
+   * <b>DONT FORGET:</b> 
       * You'll need to punch a hole through the firewall to enable communication outside of the OSB. The following command should work but YMMV. For a test environment the firewall can be disabled (ufw disable) but it is better to add an exception for the port
       * iptables -I DOCKER-USER ! -i docker0 -o docker0 -s 192.168.146.0/24 -p tcp --dport <PORT#> -j ACCEPT
 
